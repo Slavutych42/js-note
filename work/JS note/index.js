@@ -624,4 +624,82 @@
 
 // console.log(c)
 
+// ==========================
+
+// Урок № 16 Просунутий тип даних: Символи
+
+// const phoneBook = {
+//     me: "+3809348963",
+//     name: "Phone book",
+// }
+
+// const user = {
+//     name: "Olga",
+//     id: 2462562354,
+//     bookId: null,
+
+//     getPhone(book) {
+//         return book[this.bookId];
+//     }
+// }
+
+// // ====
+
+// function addToPhoneBook(phone, user) {
+//     const symId = Symbol.for(user.id);
+
+//     phoneBook[symId] = phone;
+
+//     user.bookId = symId;
+// }
+
+// addToPhoneBook("+8426555682", user);
+
+// // ==== 
+
+// addToPhoneBook("+5426235682", user);
+
+// // console.log(user.getPhone(phoneBook));
+
+// // console.log(phoneBook);
+
+// // const a = Symbol('1');
+// // const b = Symbol('1');
+
+// const id = user.bookId;
+
+// // console.log(Symbol.keyFor(id))
+
+// for(const key of phoneBook) {
+//     console.log(key)
+// }
+
+// ==================
+
+// let range = {
+//     from: 1,
+//     to: 5,
+//     [Symbol.iterator]() {
+//         this.current = this.from;
+
+//         return this;
+//     },
+
+//     next() {
+//         return this.current <= this.to ? { done: false, value: this.current++ } : { done: true };
+//     },
+// };
+
+// // for (let num of range) {
+// //     console.log(num)
+// // }
+
+// const iterator = range[Symbol.iterator]();
+
+// do {
+//     console.log(iterator.current);
+//     result = iterator.next();
+// } while (!result.done);
+
 // ===========================
+
