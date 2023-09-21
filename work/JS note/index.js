@@ -717,8 +717,8 @@
 
 // console.log(Array.isArray(arr));
 
-const arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const arr2 = [4, 5, 6];
+// const arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const arr2 = [4, 5, 6];
 
 // console.log(Array.of(...arr1, ...arr2));
 
@@ -787,3 +787,136 @@ const arr2 = [4, 5, 6];
 // console.log(arr2.every((elem, index, array) => elem >= 0));
 
 // console.log(arr2.some((elem, index, array) => elem >= 0));
+
+// ===============================
+
+// Урок № 18 Вбудовані можливості для масивів 2 частина
+
+// const userList = [
+//     { id: 1, name: "Dima", age: 19},
+//     { id: 54, name: "Ivan", age: 35},
+//     { id: 6412, name: "Anton", age: 41},
+// ];
+
+// let minAge = 30;
+
+// // const userBigAge = userList.sort((user1, user2) => {
+// //     return user2.age - user1.age;
+// // })
+
+// // const userBigAge = userList.find(({age }) => age >= 30)
+
+// // const userBigAge = userList.findIndex(({age }) => age >= 30)
+
+// console.log(userBigAge);
+
+// =============================
+
+// const userList = [
+//     { id: 1, name: "Dima", age: 19},
+//     { id: 54, name: "Ivan", age: 35},
+//     { id: 6412, name: "Anton", age: 41},
+// ];
+
+// const iter = userList.values();
+
+// console.log(iter);
+
+// const result = iter.next();
+
+// console.log(result);
+
+// for (const elem of iter) {
+//     console.log(elem);
+// }
+
+// ===================================
+
+// const arr = ["Apple", "Hotdog", "Bread", "Milk"]
+
+// console.log(arr.join(", "))
+
+// =============================
+
+// const arr = ["Apple", "Hotdog", "Bread", "Milk"];
+
+// const arrSmall = [...arr].splice(1, 2, "Tea", "Cheese");
+
+// console.log(arrSmall);
+
+// console.log(arr)
+
+// =================================
+
+// const userList = [
+//     { id: 1, name: "Dima", age: 19},
+//     { id: 54, name: "Ivan", age: 35},
+//     { id: 6412, name: "Anton", age: 41},
+// ];
+
+// const result = userList.reduce((num, user, userIndex, array) => {
+//     console.log(num, user.age);
+
+//     return user.age > num ? user.age : num;
+// }, 1);
+
+// ========================================
+
+// const userList = [
+//     { id: 1, name: "Dima", age: 19, balance: 300},
+//     { id: 54, name: "Ivan", age: 35, balance: 0},
+//     { id: 6412, name: "Anton", age: 41, balance: 10200},
+// ];
+
+// const totalBalance = userList.reduce((num, user) => num + user.balance, 0)
+
+// console.log(totalBalance);
+
+// ===================================
+
+// const userList = [
+//     { id: 1, name: "Dima", age: 19, balance: 300},
+//     { id: 54, name: "Ivan", age: 35, balance: 0},
+//     { id: 6412, name: "Anton", age: 41, balance: 10200},
+// ];
+
+// const result = userList.map((user, index, array) => {
+//     return user.name;
+// });
+
+// console.log(result.join(", "))
+
+// =============================================
+
+// const flatArray = [[100, 105], [200, 242], [300, 342], [123, 456]];
+
+// console.log(flatArray.map((el) => [...el, el[0] - el[1]]));
+
+// =============================================
+
+// const flatArray = [
+//     [
+//         [500, 364],
+//         [132, 131],
+//     ],
+
+//     [
+//         [235, 344],
+//         [122, 161],
+//     ],
+// ];
+
+// const result = flatArray.map((el) => {
+//     const newArr = el.map((it) => {
+//         return it[0] - it[1];
+//     });
+
+//     console.log(newArr);
+
+//     return newArr;
+// });
+
+// console.log(result);
+
+// ==================================
+
