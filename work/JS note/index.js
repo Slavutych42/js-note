@@ -920,3 +920,189 @@
 
 // ==================================
 
+// Урок № 19 Вбудовані можливості для Обєктів
+
+// const article = {
+//     id: 105423,
+//     title: "My article",
+//     description: "This is info about article",
+//     categoryId: 1423,
+//     likeAmount: 442,
+// };
+
+// articlePhoto = {
+//     photoUrl: "...url",
+//     photoId: 100,
+//     photoType: "big",
+// };
+
+// articleCommentList = {
+//     list: [{id: 4323, user: "Ivan", message: "Крутий коментар"}],
+// };
+
+// Object.assign(article, articlePhoto, articleCommentList);
+
+// console.log(article);
+
+// =========================
+
+// const article = {
+//     id: 105423,
+//     title: "My article",
+//     description: "This is info about article",
+//     categoryId: 1423,
+//     likeAmount: 442,
+// };
+
+// articlePhoto = {
+//     photoUrl: "...url",
+//     photoId: 100,
+//     photoType: "big",
+// };
+
+// articleCommentList = {
+//     list: [{id: 4323, user: "Ivan", message: "Крутий коментар"}],
+// };
+
+// Object.assign(article, articlePhoto, articleCommentList);
+
+// console.log(Object.entries(article))
+
+// =========================
+
+// const objArr = [["id", 100432], ["title", "My title"], ["price", 1203]];
+
+// console.log(Object.fromEntries(objArr))
+
+// ========================================
+
+// const article = {
+//     id: 105423,
+//     title: "My article",
+//     description: "This is info about article",
+//     categoryId: 1423,
+//     likeAmount: 442,
+// };
+
+// console.log(article.hasOwnProperty("id"))
+
+// =========================================
+
+// const article = {
+//     id: 105423,
+//     title: "My article",
+//     description: "This is info about article",
+//     categoryId: 1423,
+//     likeAmount: 442,
+// };
+
+// Object.freeze(article)
+
+// console.log(article)
+
+// =================================
+
+// Урок № 20 Просунутий тип даних Множина
+
+const userList = new Set([136464, 262144, 543166, 643622])
+
+// console.log(userList);
+
+// for (const value of userList) {
+//     console.log(value);
+// };
+
+// userList.forEach((value, value2, set) => console.log(value));
+
+// console.log(userList.size);
+
+// userList.add(46263);
+
+// console.log(userList);
+// console.log(userList.size);
+
+// ==========
+
+// userList.delete(136464);
+
+// console.log(userList);
+// console.log(userList.size);
+
+// ==============================
+
+// console.log(userList.has(136464))
+
+// ============================
+
+// userList.clear();
+// console.log(userList);
+
+// ====================================
+
+// const key = userList.keys();
+
+// console.log(key);
+
+// ==============
+
+// const key = userList.entries();
+
+// console.log(key);
+
+// ==========================
+
+// const entry = userList.entries();
+
+// const obj = Object.fromEntries(entry);
+
+// console.log(obj);
+
+// =================================
+
+// const valueList = userList.values();
+
+// const arr = Array.from(valueList);
+
+// console.log(arr);
+
+// =============================
+
+// const arr = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+// const set = new Set(arr);
+
+// const arr2 = Array.from(set);
+
+// console.log(arr2);
+
+// ==================================
+
+// const categoryList = new Set();
+
+// function addCategory(category) {
+//     if(categoryList.has(category)) {
+//         console.log("Ця категорія вже є")
+//         return false;
+//     } 
+
+//     categoryList.add(category);
+//     return true
+// }   
+
+// console.log(addCategory("Спорт"));
+// console.log(addCategory("Спорт"));
+// console.log(addCategory("Їжа"));
+
+// ==============================
+
+const students = [
+    { id: 1, name: "John", course: "Math" },
+    { id: 2, name: "Jane", course: "Science" },
+    { id: 3, name: "Adam", course: "Math" },
+    { id: 4, name: "Eve", course: "English" },
+    { id: 5, name: "Kate", course: "Science" },
+];
+
+const courseList = new Set(students.map((student) => student.course))
+
+console.log(courseList)
