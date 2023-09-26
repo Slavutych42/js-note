@@ -1004,7 +1004,7 @@
 
 // Урок № 20 Просунутий тип даних Множина
 
-const userList = new Set([136464, 262144, 543166, 643622])
+// const userList = new Set([136464, 262144, 543166, 643622])
 
 // console.log(userList);
 
@@ -1095,14 +1095,185 @@ const userList = new Set([136464, 262144, 543166, 643622])
 
 // ==============================
 
-const students = [
-    { id: 1, name: "John", course: "Math" },
-    { id: 2, name: "Jane", course: "Science" },
-    { id: 3, name: "Adam", course: "Math" },
-    { id: 4, name: "Eve", course: "English" },
-    { id: 5, name: "Kate", course: "Science" },
-];
+// const students = [
+//     { id: 1, name: "John", course: "Math" },
+//     { id: 2, name: "Jane", course: "Science" },
+//     { id: 3, name: "Adam", course: "Math" },
+//     { id: 4, name: "Eve", course: "English" },
+//     { id: 5, name: "Kate", course: "Science" },
+// ];
 
-const courseList = new Set(students.map((student) => student.course))
+// const courseList = new Set(students.map((student) => student.course))
 
-console.log(courseList)
+// console.log(courseList)
+
+// ========================
+
+// Урок № 21 Просунутий тип даних Словник
+
+// const button = new Map(
+//     [
+//         ["color", "red"],
+//         ["size", "32px"],
+//     ],
+// );
+
+// console.log(button);
+
+// const obj = {
+//     color: "red",
+//     size: "32px",
+// };
+
+// const set = new Set(["red", "32px"])
+
+// const button2 = new Map(Object.entries(obj));
+
+// console.log(button2)
+
+// const button3 = new Map(set.entries());
+
+// console.log(button3)
+
+// ===========================
+
+// const button = new Map(
+//     [
+//         ["color", "red"],
+//         ["size", "32px"],
+//     ],
+// );
+
+// const set2 = new Set(button.keys());
+
+// console.log(set2)
+
+// ===============
+
+// const button = new Map(
+//     [
+//         ["color", "red"],
+//         ["size", "32px"],
+//     ],
+// );
+
+// for (const [key, value] of button) {
+//     console.log(key, value);
+// };
+
+// for (const value in Object.fromEntries(button.entries())) {
+//     console.log(value);
+// };
+
+// button.forEach((key, value, map) => console.log(key, value, map))
+
+// console.log(button.size)
+
+//  =========
+
+// const button = new Map(
+//     [
+//         ["color", "red"],
+//         ["size", "32px"],
+//     ],
+// );
+
+// button.set("weight", 1000)
+// console.log(button)
+
+// console.log(button.get("weight"))
+
+// button.delete("weight");
+
+// console.log(button);
+
+// =============
+
+// const button = new Map(
+//     [
+//         ["color", "red"],
+//         ["size", "32px"],
+//     ],
+// );
+
+// console.log(button.has("color"))
+
+// button.clear()
+
+// console.log(button)
+
+// ========
+
+// const LANG_LIST = {
+//     UA: 'uk-UA',
+//     EA: 'ea-US',
+// }
+
+// const activeLang = LANG_LIST.EA;
+
+// const product = {
+//     price: 100,
+//     amount: 3,
+
+//     info: new Map([
+//         [LANG_LIST.UA, {
+//             title: "Заголовок",
+//             info: "Інформація",
+//         }
+//         ],
+//         [LANG_LIST.EA, {
+//             title: "Title",
+//             info: "Info",
+//         }
+//         ],
+//     ])
+// };
+
+// const info = product.info.get(activeLang);
+// console.log(info);
+
+// console.log(product.info.has(activeLang))
+
+// ==================
+
+// const user1 = {
+//     id: 1323,
+//     name: "Ivan",
+// };
+
+// const user2 = {
+//     id: 4231,
+//     name: "Anton",
+// };
+
+// const product1 = {
+//     id: 5314,
+//     title: "Phone",
+// };
+
+// const product2 = {
+//     id: 3244,
+//     title: "Apple",
+// };
+
+// const userProduct = new Map();
+
+// userProduct.set(user1, product1).set(user2, product2);
+
+// console.log(userProduct);
+
+// const productClientList = new Map();
+
+// productClientList.set(product1, new Set());
+
+// console.log(productClientList.set(product1, productClientList.get(product1).add(user1)));
+// console.log(productClientList.set(product1, productClientList.get(product1).add(user2)));
+
+// const has = productClientList.get(product1).has(user1);
+
+// console.log(has);
+
+// ==================
+
+// Урок № 22 Вбудовані можливості: JSON та URL
+
