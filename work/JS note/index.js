@@ -1274,6 +1274,85 @@
 // console.log(has);
 
 // ==================
-
+ 
 // Урок № 22 Вбудовані можливості: JSON та URL
 
+// const roleField = "roleName";
+
+// const data = {
+//     id: 325,
+//     login: "user1234",
+//     password: "123456",
+//     [roleField]: "Admin",
+//     go() {
+//         console.log("go");
+//     },
+// };
+
+// const jsonData = JSON.stringify(data, (key, value) => {
+//     if(key === roleField) {
+//         return null;
+//     }
+
+//     if(typeof value === "string") {
+//         return value.toUpperCase();
+//     }
+
+//     if(typeof value === "number") {
+//         return value * 10;
+//     }
+//     return value;
+// }, 1);
+
+// console.log(jsonData);
+
+// ========================
+// const roleField = "roleName";
+
+// const data = {
+//     id: 325,
+//     login: "user1234",
+//     password: "123456",
+//     [roleField]: "Admin",
+//     go() {
+//         console.log("go");
+//     },
+// };
+
+// const jsonData = JSON.stringify(data, (key, value) => {
+//     if(key === roleField) {
+//         return null;
+//     }
+
+//     if(typeof value === "string") {
+//         return value.toUpperCase();
+//     }
+
+//     if(typeof value === "number") {
+//         return value * 10;
+//     }
+//     return value;
+// }, 1);
+
+// const parseData = JSON.parse(jsonData, (key, value) => {
+//     if(key === roleField) {
+//         return "Admin";
+//     }
+
+//     if(typeof value === "string") {
+//         return value.toLowerCase();
+//     }
+
+//     if(typeof value === "number") {
+//         return value / 10;
+//     }
+//     return value;
+// }, 1);
+
+// console.log(parseData);
+
+// =============
+
+const url = new URL('https://www.example.com/path');
+
+console.log(url.href)
