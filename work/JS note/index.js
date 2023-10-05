@@ -1412,3 +1412,52 @@
 // console.log(userDate.toString());
 // console.log(userDate.toUTCString());
 // console.log(new Date(getUserTimeZone(user)).toString());
+
+// ====================
+
+// Урок № 24 Вбудовані можливості: Математика
+
+// const a = 5;
+// const b = 10;
+// const c = -5;
+
+// const arr = [10, 20, 30, 40]
+// console.log(Math.max(a, b, c, ...arr))
+
+// ====================
+
+// const a = 5;
+
+// console.log(Math.sign(a));
+
+// ==================
+
+// const a = 5;
+
+// console.log(Math.pow(a, 2)) 
+
+// ===============
+
+// const a = 5;
+
+// console.log(Math.sqrt(a))
+
+// ===============
+
+// console.log(Math.floor(1.1), Math.floor(1.5), Math.floor(1.9))
+
+// console.log(Math.ceil(1.1), Math.ceil(1.5), Math.ceil(1.9))
+
+// console.log(Math.round(1.1), Math.round(1.5), Math.round(1.9))
+
+// console.log(Math.trunc(1.1), Math.trunc(1.5), Math.trunc(1.9))
+
+// =================
+
+// const random = Math.trunc(Math.random() * 100) + 1;
+
+// console.log(random)
+
+// ==============
+
+// console.log(Math.fround(0.1 + 0.2) === Math.fround(0.3))
