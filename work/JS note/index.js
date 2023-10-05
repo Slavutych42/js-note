@@ -1353,6 +1353,62 @@
 
 // =============
 
-const url = new URL('https://www.example.com/path');
+// const url = new URL('https://www.example.com/path');
 
-console.log(url.href)
+// console.log(url.href)
+
+// ===========
+
+// Урок № 23 Дата
+
+// const date = new Date()
+
+// const dateString = date.toISOString();
+
+// console.log(dateString)
+
+// const date2 = Date.parse(dateString) + 1000 * 60 * 5;
+
+// console.log(date2);
+
+// console.log(date.toString());
+
+// console.log(date.toDateString());
+
+// console.log(date.toTimeString());
+
+// ===================
+
+// const date = new Date()
+
+// const zone = date.getTimezoneOffset() / -60;
+
+// console.log(zone);
+
+// ===================
+
+// const user = -3;
+
+// function getUserTimeZone(timeZone) {
+    // let date = Date.now();
+    // let date = new Date(Date.UTC(2023, 5, 26, 12, 30, 0, 0));
+
+    // console.log(date.getHours());
+
+    // console.log(date.toString());
+    // console.log(date.toUTCString());
+
+    // const myTimeZone = date.getTimezoneOffset() / -60;
+
+    // date.setTime(date.getTime() - 1000 * 60 * 60 * myTimeZone);
+
+    // date.setTime(date.getTime() + 1000 * 60 * 60 * timeZone);
+
+    // return date;
+// }
+
+// const userDate = getUserTimeZone(user);
+
+// console.log(userDate.toString());
+// console.log(userDate.toUTCString());
+// console.log(new Date(getUserTimeZone(user)).toString());
