@@ -1461,3 +1461,52 @@
 // ==============
 
 // console.log(Math.fround(0.1 + 0.2) === Math.fround(0.3))
+
+//==============
+
+// Урок № 25 Вбудовані можливості: Консоль 
+
+// const timer = "Timer";
+
+// console.time(timer);
+
+// console.group("Group 1");
+// console.log('Test');
+// console.groupEnd()
+
+// console.timeEnd(timer)
+
+// ==================
+
+// const test1 = () => console.trace("Hello");
+
+// const test2 = () => test1();
+
+// const test3 = () => test2();
+
+// test3()
+
+// ===================
+
+// const data = [
+//     { name: "John", age: 25, city: "New York" },
+//     { name: "Alice", age: 30, city: "London" },
+// ]
+
+// console.table(data)
+
+// ===============
+
+// const a = 5;
+// const b = 10;
+
+// const result = a > b;
+
+// console.assert(result, "info")
+
+// ================
+
+// console.log("%cHello World", "color: blue, font-size: 50px")
+
+// ===============
+
