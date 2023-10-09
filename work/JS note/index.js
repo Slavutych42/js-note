@@ -1510,3 +1510,71 @@
 
 // ===============
 
+// Урок № 26 Регулярні вирази
+
+// Урок № 27 Вбудовані регулярні вирази
+
+// const reg = /test/g;
+
+// // const reg1 = RegExp("test", "g")
+// // console.log(reg.flags)
+
+// const result = reg.exec("This is test")
+
+// console.log(result)
+
+// ==========
+
+// const reg = /test/g;
+
+// const test = "This is test and est";
+
+// const result = test.matchAll(reg)
+
+// console.log(result.next());
+
+// console.log(result.next());
+
+// ==============
+
+// Урок № 28 Обробка помилок
+
+// try { 
+//     const a = 10;
+//     a = 5;
+// } catch (err) {
+//     console.log(err)
+// } finally {
+//     console.log("2")
+// }
+
+// =============
+
+// function getUserData(userId) {
+//     try { 
+//         const a = 10;
+//         a = 5;
+//     } catch (err) {
+//       const newErr = new Error(`Помилка. Неможливо отримати дані користувача ${userId}`, { cause: err, });
+//       console.log(newErr)
+//     }
+// }
+
+// getUserData(105134)
+
+// ===============
+
+// function sumNum(a, b) {
+//     if(typeof a !== "number" || typeof b !== "number") {
+//         throw new Error("Аргументи не є числами");
+//     }
+//     return a + b;
+// }
+
+// try {
+//     sumNum(10, "abc");
+// } catch (err) {
+//     console.log(err.message)
+// }
+
+// ==============
