@@ -1578,3 +1578,128 @@
 // }
 
 // ==============
+
+// Урок № 29 ООП
+
+// const Animal = {
+//     name: "Тварина",
+//     voice: "Звук",
+//     say() { console.log(`${this.name} каже ${this.voice}`) },
+// };
+
+// const dog = {...Animal};
+
+// dog.name = 'Бобік';
+// dog.voice = 'Гав';
+
+// dog.say()
+
+// ====================
+
+// const Animal = {
+//     name: "Тварина",
+//     voice: "Звук",
+//     say() { console.log(`${this.name} каже ${this.voice}`) },
+// };
+
+// const dog = Object.create(Animal);
+
+// dog.name = 'Бобік';
+// dog.voice = 'Гав';
+
+// dog.say()
+
+// console.log(dog);
+
+// Animal.go = function () {
+//     console.log(`${this.name} біжить`);
+// };
+
+// dog.go();
+
+// console.log(Object.getPrototypeOf(dog));
+
+// console.log(Animal.isPrototypeOf(dog));
+
+// Object.setPrototypeOf(dog, null);
+
+// =================
+
+// const Animal = {
+//     name: "Тварина",
+//     voice: "Звук",
+//     say() { console.log(`${this.name} каже ${this.voice}`) },
+// };
+
+// const dog = Object.create(Animal);
+
+// dog.name = 'Бобік';
+// dog.voice = 'Гав';
+
+// Object.defineProperty(dog, "age", {
+//     set(value) {
+//         this._age = value * 2;
+//     },
+//     get() {
+//         return `${this._age || 0} років`
+//     },
+// })
+
+// Animal.go = function () {
+//     console.log(`${this.name} біжить`);
+// };
+
+// =============
+
+// const Tag = {
+//     render() {
+//         return `<>${value}<>`;
+//     },
+// };
+
+// const button = Object.create(Tag);
+
+// button.render = function(value = "") {
+//     return `<button style="${this.style}">${value}</button>`;
+// };
+
+// const mainButton = Object.create(button, {
+//     style: {
+//         value: "background: red",
+//         writeble: true,
+//     },
+// });
+
+// console.log(mainButton.render("Click"));
+
+// const input = Object.create(Tag);
+
+// input.render = function() {
+//     return `<input placeholder="${this.placeholder}" style="${this.style}"/>`;
+// };
+
+// const loginInput = Object.create(input, {
+//     style: {
+//         value: "border: 1px solid red",
+//         writeble: true,
+//     },
+//     placeholder: {
+//         value: "Login...",
+//     },
+// });
+
+// console.log(loginInput.render());
+
+// const serverRequest = {
+//     data: null,
+//     getData() {
+//         ///....
+//     },
+//     render() {
+//         this.data = this.getData();
+//         return `...`
+//     },
+// };
+
+// ==============
+
