@@ -1925,3 +1925,71 @@
 // console.log(verifyUser.apply(test, ["QWE123"]))
 
 // ============
+
+// Урок № 31 Класи
+
+// class User {
+//     login = null;
+//     password = null;
+//     role = null;
+//     age = null;
+
+//     isAdmin = () => {
+//         return this.role === "Admin"
+//     };
+// };
+
+// const user = new User();
+// // console.log(user)
+
+// function verifyAdmin(fn) {
+//     const result = fn();
+//     if(!result) {
+//         throw new Error ("Не адмін");
+//     }
+//     return true
+// };
+
+// verifyAdmin(user.isAdmin)
+
+// ===========
+
+class Person {
+    test = () => {
+        console.log("hello")
+    };
+}
+
+class User extends Person {
+    constructor(login, password) {
+        super()
+        this.login === login;
+        this.password === password;
+    }
+    #role = null;
+    age = null;
+
+    isAdmin = () => {
+        return this.role === "Admin"
+    };  
+    verify = (user1, user2) => {
+        return user1.login === user2.login
+    };
+    #createAdminUser = (login) => {
+        return new User()
+    };
+    static generateRandomPassword = () => {
+
+    }
+
+    get admin() {
+        return this.#role === "Admin"
+    };
+    set admin(value) {
+        this.#role = "Admin";
+    }
+};
+
+const user = new User("Ivan", "qwe123");
+
+console.log(user.test())
