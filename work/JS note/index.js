@@ -1954,42 +1954,867 @@
 
 // ===========
 
-class Person {
-    test = () => {
-        console.log("hello")
-    };
-}
+// class Person {
+//     test = () => {
+//         console.log("hello")
+//     };
+// }
 
-class User extends Person {
-    constructor(login, password) {
-        super()
-        this.login === login;
-        this.password === password;
-    }
-    #role = null;
-    age = null;
+// class User extends Person {
+//     constructor(login, password) {
+//         super()
+//         this.login === login;
+//         this.password === password;
+//     }
+//     #role = null;
+//     age = null;
 
-    isAdmin = () => {
-        return this.role === "Admin"
-    };  
-    verify = (user1, user2) => {
-        return user1.login === user2.login
-    };
-    #createAdminUser = (login) => {
-        return new User()
-    };
-    static generateRandomPassword = () => {
+//     isAdmin = () => {
+//         return this.role === "Admin"
+//     };  
+//     verify = (user1, user2) => {
+//         return user1.login === user2.login
+//     };
+//     #createAdminUser = (login) => {
+//         return new User()
+//     };
+//     static generateRandomPassword = () => {
 
-    }
+//     }
 
-    get admin() {
-        return this.#role === "Admin"
-    };
-    set admin(value) {
-        this.#role = "Admin";
-    }
-};
+//     get admin() {
+//         return this.#role === "Admin"
+//     };
+//     set admin(value) {
+//         this.#role = "Admin";
+//     }
+// };
 
-const user = new User("Ivan", "qwe123");
+// const user = new User("Ivan", "qwe123");
 
-console.log(user.test())
+// console.log(user.test())
+
+// Урок № 32 Патерни програмування 1 частина
+
+// class RecentPurchases {
+//     static #instance = null;
+
+//     static #purchases = [];
+
+//     static create() {
+//         if (!this.#instance) {
+//             this.#instance = new RecentPurchases();
+//         }
+//         return this.#instance;
+//     }
+
+//     static add(item) {
+//         this.#purchases.push(item);
+//     }
+
+//     static get() {
+//         return this.#purchases;
+//     }
+// }
+
+// RecentPurchases.create();
+
+// RecentPurchases.add(`Телефон`);
+// RecentPurchases.add(`Навушники`);
+
+// console.log(RecentPurchases.get());
+
+// ===============
+
+// class Button {
+//     constructor({ text, color }) {
+//         this.text = text;
+//         this.color = color;
+//     }
+
+//     render() {
+//         return `<button class="color:${this.color};">${this.text}</button>`;
+//     }
+// }
+
+// class IconButton {
+//     constructor({ icon, color }) {
+//         this.icon = icon;
+//         this.color = color;
+//     }
+
+//     render() {
+//         return `<button class="color:${this.color};"><img src="${this.icon}"/></button>`;
+//     }
+// }
+
+// class ButtonFactory {
+//     static TYPE = {
+//         BASIC: "basic",
+//         ICON: "icon",
+//     }
+
+//     static createButton(type, options) {
+//         if(options.icon) {
+//           return new IconButton(options);
+//         }
+
+//         if(options.text) {
+//           return new Button(options);
+//         }
+
+//         return  new Error(`Такого типу кнопки не існує ${type}`);
+
+//         // switch (type) {
+//         //     case this.TYPE.BASIC:
+//         //         return new Button(options);
+//         //     case this.TYPE.ICON:
+//         //         return new IconButton(options);
+//         //     default:
+//         //         throw new Error(`Такого типу кнопки не існує ${type}`);
+//         // }
+//     }
+// }
+
+// const myIconButton = ButtonFactory.createButton(ButtonFactory.TYPE.ICON, {color: "red", icon: "/icon/my-icon.svg"})
+
+// console.log(myIconButton)
+
+// =========== 
+
+// class User {
+//   constructor(email) {
+//     this.email = email;
+//   };
+
+//   sendEmail(message) {
+//     console.log(`Відправити на email ${this.email} повідомлення: ${message}`);
+//   };
+// };
+
+// class Video {
+//   constructor(name) {
+//     this.name = name;
+//   };
+// };
+
+// class Channel {
+//   constructor(name) {
+//     this.name = name;
+//     this.subscribers = [];
+//   };
+
+//   subscribe(user) {
+//     this.subscribers.push(user);
+//   };
+
+//   unsubscribe(user) {
+//     this.subscribers = this.subscribers.filter((sub) => sub !== user);
+//   };
+
+//   createVideo(name) {
+//     const video = new Video(name);
+//     this.sendNotify(video);
+//   };
+
+//   sendNotify(video) {
+//     this.subscribers.forEach((subscriber) => {
+//       subscriber.sendEmail(
+//         `Нове відео "${video.name}" на Youtube каналі ${this.name}!`
+//       );
+//     });
+//   };
+// };
+
+// const channel = new Channel("IT Brains");
+
+// const user1 = new User("john@email.com");
+// const user2 = new User("jane@email.com");
+// const user3 = new User("jeson@email.com");
+
+// channel.subscribe(user1);
+// channel.subscribe(user2);
+// channel.subscribe(user3);
+
+// channel.createVideo("Урок про HTML");
+
+// channel.unsubscribe(user1);
+
+// channel.createVideo("Урок про CSS");
+
+// ================
+
+// class Coffee {
+//   name = "Кава";
+
+//   cost = 10;
+
+//   cook() {
+//     console.log(`Приготування ${this.name}`);
+//   };
+// };
+
+// class MilkDecorator {
+//   constructor(coffee, amount) {
+//     this.coffee = coffee;
+//     this.amount = amount;
+//   };
+
+//   get name() {
+//     return `${this.coffee.name}, з ${this.amount} мл молока`;
+//   };
+
+//   get cost() {
+//     const milkPrice = 0.05;
+//     return this.coffee.cost + milkPrice * this.amount;
+//   };
+
+//   cook() {
+//     console.log(`Приготування ${this.name}`);
+//   };
+// };
+
+// let coffee = new Coffee();
+// console.log(coffee.name);
+// console.log(coffee.cost);
+// coffee.cook();
+
+// let latteCoffee = new MilkDecorator(coffee, 300);
+// console.log(latteCoffee.name);
+// console.log(latteCoffee.cost);
+// latteCoffee.cook();
+
+// =============
+
+// class TextEditor {
+//   #text = "";
+
+//   set text(text) {
+//     this.#text = text;
+//     this.#save();
+//   }
+
+//   get text() {
+//     return this.#text;
+//   }
+
+//   #save() {
+//     Snapshot.create(this.text);
+//   }
+
+//   restore() {
+//     this.#text = Snapshot.restore().text;
+//   }
+// };
+
+// class Snapshot {
+//   constructor(text) {
+//     this.text = text;
+//   }
+
+//   static #snapshots = [];
+
+//   static create(text) {
+//     this.#snapshots.push(new Snapshot(text));
+//   }
+
+//   static restore() {
+//     this.#snapshots.pop();
+//     return this.#snapshots[this.#snapshots.length - 1];
+//   }
+// }
+
+// const editor = new TextEditor();
+
+// editor.text = "Це початковий текст";
+// editor.text = "Редагований текст";
+// editor.text = "Оновлений текст";
+
+// console.log("===");
+
+// console.log(editor.text);
+
+// console.log("===");
+
+// editor.restore();
+
+// console.log(editor.text);
+
+// editor.restore();
+
+// console.log(editor.text);
+
+// ================
+
+// class AuthHandler {
+//   sendNextHandler(handler) {
+//     this.nextHandler = handler;
+//     return handler;
+//   }
+
+//   login(user, password) {
+//     if(this.nextHandler) {
+//       return this.nextHandler.login(user, password);
+//     } else {
+//       return false
+//     }
+//   }
+// }
+
+// class TwoFactorAuthHandler extends AuthHandler {
+//   login(user, password) {
+//     if(
+//       user === "jonh" &&
+//       password === "password" &&
+//       this.isValidTwoFactorCode()
+//     ) {
+//       console.log("Вхід дозволено з двофакторною автентифікацією")
+//       return true;
+//     } else {
+//       return super.login(user, password);
+//     }
+//   }
+
+//   isValidTwoFactorCode(){
+//     return true;
+//   }
+// }
+
+// class RoleHandler extends AuthHandler {
+//   login(user, password) {
+//     if(user === "guest") {
+//       console.log("Вхід дозволено з роллю гостя");
+//       return true;
+//     } else {
+//       return super.login(user, password);
+//     }
+//   }
+// }
+
+// class CredentialsHandler extends AuthHandler {
+//   login(user, password) {
+//     if(user === "admin" && password === "admin123") {
+//       console.log("Вхід дозволено за логіном та паролем");
+//       return true;
+//     } else {
+//       return super.login(user, password);
+//     }
+//   }
+// }
+
+// class HandlerBuilder {
+//   constructor() {
+//     this.firstHandler = null;
+//     this.lastHandler = null;
+//   }
+
+//   add(handler){
+//     if(!this.firstHandler) {
+//       this.firstHandler = handler;
+//       this.lastHandler = handler;
+//     } else {
+//       this.lastHandler.sendNextHandler(handler);
+//       this.lastHandler = handler;
+//     }
+//     return this;
+//   }
+
+//   create() {
+//     return this.firstHandler;
+//   }
+// }
+
+// // const handler = new TwoFactorAuthHandler();
+
+// // const handler2 = new CredentialsHandler();
+
+// // handler2.sendNextHandler(new RoleHandler());
+
+// // handler.sendNextHandler(handler2);
+
+// // handler.login("guest", "admin123");
+
+// const handlerBuilder = new HandlerBuilder();
+// const handler = handlerBuilder
+//   .add(new CredentialsHandler())
+//   .add(new TwoFactorAuthHandler())
+//   .add(new RoleHandler())
+//   .create();
+
+// handler.login("admin", "admin123");
+// handler.login("jonh", "password");
+// handler.login("guest", "guest123");
+// handler.login("user", "password");
+
+// ============
+
+// class User {
+//   constructor(name, messanger) {
+//     this.name = name;
+//     this.messanger = messanger;
+//   }
+
+//   sendMessage(message) {
+//     const formattedMessage = this.formatMessage(message);
+//     this.messanger.sendMessage(formattedMessage);
+//   }
+
+//   formatMessage(message) {
+//     return `[${this.name}]: ${message}`;
+//   }
+// }
+
+// class SMSMessenger {
+//   static sendMessage(message) {
+//     console.log(`Відправлено SMS: ${message}`);
+//   }
+// }
+
+// class EmailMessenger {
+//   static sendMessage(message) {
+//     console.log(`Відправлено Email: ${message}`);
+//   }
+// }
+
+// const john = new User("John", SMSMessenger);
+// const jane = new User("Jane", EmailMessenger);
+
+// john.sendMessage("Hello");
+// jane.sendMessage("Hello");
+
+// ===========
+
+// Урок № 33 Патерни програмування 2 частина
+
+// class Composite {
+//     comments = [];
+
+//     addComment(comment) {
+//         this.comments.push(comment);
+//     }
+
+//     removeComment(comment) {
+//         const index = this.comments.indexOf(comment);
+//         if(index !== -1) {
+//             this.comments.splice(index, 1);
+//         }
+//     }
+// }
+
+// class Comment extends Composite {
+//     constructor(text) {
+//         super();
+//         this.text = text;
+//     }
+
+//     display() {
+//         console.log(`- Коментар: ${this.text}`)
+//         for(const comment of this.comments) {
+//             comment.display()
+//         }
+//     }
+// }
+
+// class Video extends Composite {
+//     constructor(title) {
+//         super();
+//         this.title = title;
+//     }
+
+//     display() {
+//         console.log(`Відео: ${this.title}`)
+//         for(const comment of this.comments) {
+//             comment.display()
+//         }
+//     }
+// }
+
+// const video = new Video("Навчальне відео");
+
+// video.addComment(new Comment("Дуже корисне відео"))
+// video.addComment(new Comment("Дякую автору"))
+
+// video.comments[0].addComment(new Comment("Корисний коментар"))
+
+// video.display()
+
+// ====================
+
+// class Category {
+//     static #categories = {};
+
+//     constructor(name) {
+//         this.name = name;
+//     }
+
+//     static create(name) {
+//         if(!this.#categories[name]) {
+//             this.#categories[name] = new Category(name);
+//         }
+//         return this.#categories[name];
+//     }
+// }
+
+// class Product {
+//     constructor(name, category) {
+//         this.name = name;
+//         this.category = category;
+//     }
+
+//     display() {
+//         console.log(`Product: ${this.name}, Category: ${this.category.name}`)
+//     }
+// }
+
+// const electonics = Category.create("Electronics");
+// const books = Category.create("Books");
+// const electonics2 = Category.create("Electronics");
+
+// console.log(electonics, books, electonics2)
+// console.log(electonics === electonics2)
+
+// const product1 = new Product("Laptop", electonics);
+// const product2 = new Product("Headphones", electonics);
+// const product3 = new Product("Book title", books);
+// const product4 = new Product("Smarphone", electonics);
+
+// product1.display();
+// product2.display();
+// product3.display();
+// product4.display();
+
+// =============
+
+// class CoffeeMachine {
+//     prepareCoffee(){
+//         this.boilWater();
+//         this.grindCoffeeBeans();
+//         this.#brewCoffee();
+//         this.pourCoffee();
+//         this.addIngridients();
+//         this.serveCoffee();
+//     }
+
+//     boilWater() {
+//         console.log("Boiling water...")
+//     }
+
+//     grindCoffeeBeans() {
+//         console.log("Grinding coffee beans...")
+//     }
+
+//     #brewCoffee() {
+//         console.log("brewing coffee...")
+//     }
+
+//     pourCoffee() {
+//         console.log("Pouring coffee into cup...")
+//     }
+
+//     addIngridients() {
+        
+//     }
+
+//     serveCoffee() {
+//         console.log("Coffee served!")
+//     }
+// }
+
+// class LatteMachine extends CoffeeMachine {
+//     addIngridients() {
+//         console.log("Adding milk to make a latte...");
+//     }
+// }
+
+// class CappuccinoMachine extends CoffeeMachine {
+//     addIngridients() {
+//         console.log("Adding frothed milk and sprinkle of cocoa powder to make a cappuccino...");
+//     }
+// }
+
+// const latteMachine = new LatteMachine();
+// latteMachine.prepareCoffee();
+
+// const cappuccinoMachine = new CappuccinoMachine();
+// cappuccinoMachine.prepareCoffee();
+
+// =========
+
+// class TextFile {
+//     constructor(name, content) {
+//         this.name = name;
+//         this.content = content;
+//     }
+// }
+
+// class ImageFile {
+//     constructor(name, size) {
+//         this.name = name;
+//         this.size = size;
+//     }
+// }
+
+// class VideoFile {
+//     constructor(name, duration) {
+//         this.name = name;
+//         this.duration = duration;
+//     }
+// }
+
+// class TextEditor {
+//   files = [];
+
+//   addFile(file) {
+//       this.files.push(file);
+//   }
+
+//   readTextFile(file) {
+//       console.log(`Text file: ${file.name}, Size: ${file.content.length}, characters`)
+//   }
+
+//   readImageFile(file) {
+//       console.log(`Image file: ${file.name}, Size: ${file.size}, KB`)
+//   }
+
+//   readVideoFile(file) {
+//       console.log(`Video file: ${file.name}, Duration: ${file.duration}, minutes`)
+//   }
+
+//   readFiles() {
+//     for(const file of this.files) {
+//       if(file instanceof TextFile) {
+//         this.readTextFile(file);
+//       } else if(file instanceof ImageFile) {
+//         this.readImageFile(file);
+//       } else if(file instanceof VideoFile) {
+//         this.readVideoFile(file);
+//       }
+//     }
+//   }
+// }
+
+// const textEditor = new TextEditor();
+
+// const textFile = new TextFile("document.txt", "Lorem");
+// const imageFile = new ImageFile("image.jpg", 1024);
+// const videoFile = new VideoFile("video.mp4", 60);
+
+// textEditor.addFile(textFile);
+// textEditor.addFile(imageFile);
+// textEditor.addFile(videoFile);
+
+// // console.log(textEditor);
+
+// textEditor.readFiles()
+
+// ==============
+
+// class ElectronicPaymentSystem {
+//   makePayment(amount) {
+//     const convertedAmount = this.convertAmount(amount);
+//     console.log(`Making electronic payment: $${convertedAmount}`)
+//   }
+
+//   convertAmount(amount) {
+//     return amount * 1.2;
+//   }
+// }
+
+// class OtherPaymentSystem {
+//   submit(amount) {
+//     console.log(`Submitting payment request: $${amount}`)
+//   }
+// }
+
+// class PaymentAdapter {
+//   constructor(paymentSystem) {
+//     this.paymentSystem = paymentSystem;
+//   }
+  
+//   makePayment(amount) {
+//     const convertedAmount = this.convertAmount(amount);
+//     this.paymentSystem.submit(convertedAmount);
+//   }
+
+//   convertAmount(amount) {
+//     return amount * 1.2
+//   }
+// }
+
+// class Order {
+//   constructor(amount) {
+//     this.amount = amount;
+
+//     if(amount < 100) {
+//       this.paymentSystem = new PaymentAdapter(new OtherPaymentSystem());
+//     } else {
+//       this.paymentSystem = new ElectronicPaymentSystem();
+//     }
+//   }
+
+//   makePayment() {
+//     return this.paymentSystem.makePayment(this.amount)
+//   }
+// }
+
+// const order1 = new Order(1000);
+// order1.makePayment()
+
+// const order2 = new Order(10);
+// order2.makePayment()
+
+// ==============
+
+// class ShoppingCart {
+//   constructor(discountStrategy) {
+//     this.discountStrategy = discountStrategy;
+//     this.items = [];
+//   }
+
+//   addItem(item) {
+//     this.items.push(item)
+//   }
+
+//   calculateTotalPrice() {
+//     const price =  this.items.reduce((acc, item) => acc + item.price, 0);
+//     return this.discountStrategy.calculateDiscount(price);
+//   }
+// }
+
+// class DiscountStrategy {
+//   calculateDiscount(price) {
+//     return price;
+//   }
+// }
+
+// class RegularDiscountStrategy extends DiscountStrategy {
+//   calculateDiscount(price) {
+//     return price / 1.1;
+//   }
+// }
+
+// class PremiumDiscountStrategy extends DiscountStrategy {
+//   calculateDiscount(price) {
+//     return price / 1.2;
+//   }
+// }
+
+// class NewCustomerDiscountStrategy extends DiscountStrategy {
+//   calculateDiscount(price) {
+//     return price / 1.05;
+//   }
+// }
+
+// const shoppingCart1 = new ShoppingCart(new RegularDiscountStrategy());
+
+// shoppingCart1.addItem({ name: "Product 1", price: 100 });
+// shoppingCart1.addItem({ name: "Product 2", price: 50 });
+
+// console.log(shoppingCart1.calculateTotalPrice());
+
+// ===============
+
+// class User {
+//   constructor(name, email, password) {
+//     this.name = name;
+//     this.email = email;
+//     this.password = password;
+//   }
+// }
+
+// class UserGroup {
+//   users = [];
+
+//   addUser(user) {
+//     this.users.push(user)
+//   }
+// }
+
+// class UserIterator {
+//   #users = null;
+//   #currentIndex = 0
+//   constructor(userGroup) {
+//     this.#users = userGroup.users
+//   }
+
+//   #hasNext() {
+//     return this.#currentIndex < this.#users.length;
+//   }
+
+//   next() {
+//     if(this.#hasNext()) {
+//       const name = this.#users[this.#currentIndex].name;
+//       this.#currentIndex++;
+//       return name;
+//     }
+//     return null;
+//   }
+
+//   list() {
+//     return this.#users.map((user) => user.name).join(", ")
+//   }
+// } 
+
+// const group = new UserGroup();
+
+// group.addUser(new User("John", "john@email.com", "password1"));
+// group.addUser(new User("Jane", "joane@email.com", "password2"));
+
+// console.log(group)
+
+// //
+
+// const iterator = new UserIterator(group);
+
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.list());
+
+// ==================
+
+// class User {
+//   constructor(name, chat) {
+//     this.name = name;
+//     this.chat = chat;
+//   }
+
+//   sendMessage(message) {
+//     console.log(`${this.name} відправив повідомлення ${message}`);
+//     return this.chat.sendMessage(this, message);
+//   }
+
+//   receiveMessage(user, message) {
+//     console.log(`${this.name} отримав повідомлення від ${user.name}: ${message}`);
+//   }
+// }
+
+// class Chat {
+//   users = [];
+
+//   addUser(user) {
+//     this.users.push(user);
+//   }
+
+//   sendMessage(sender, message) {
+//     for(const user of this.users) {
+//       if(user !== sender) {
+//         user.receiveMessage(sender, message);
+//       }
+//     }
+//   }
+// }
+
+// const chatMediator = new Chat();
+
+// const user1 = new User("John", chatMediator);
+// const user2 = new User("Jane", chatMediator);
+// const user3 = new User("Jakob", chatMediator);
+
+// chatMediator.addUser(user1);
+// chatMediator.addUser(user2);
+// chatMediator.addUser(user3);
+
+// user1.sendMessage("привіт")
+
+// ==============
