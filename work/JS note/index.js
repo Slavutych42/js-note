@@ -2818,3 +2818,272 @@
 // user1.sendMessage("привіт")
 
 // ==============
+
+// Урок № 34 Цикл подій
+
+// console.log('Перший');
+
+// setTimeout(() => {
+//     console.log('Другий');
+// }, 1000 * 2);
+
+// console.log("Третій")
+
+// =========
+
+// setImmediate(() => {
+//     console.log("1")
+// })
+
+// console.log('2')
+// console.log('3')
+
+// =======
+
+// setInterval(() => {
+//     console.log("5")
+// }, 2000)
+
+// ==========
+
+// Урок № 35 Управління асинхронними операціями
+
+// function loadFile(filename, callback) {
+    // try {
+    //     console.log(`Завантаження файлу ${filename}....`);
+    //     setTimeout(() => callback(null, `Вміст файлу ${filename}`), 2000)
+    // } catch (e) {
+    //     callback(e);
+    // }
+// }
+
+// loadFile("example.txt", function (error, content) {
+//     if(error) {
+//         console.error("Помилка завантаження файлу:", error);
+//     } else {
+//         console.log("Файл завантажено успішно!");
+//         console.log("Вміст файлу:", content)
+//     }
+// })
+
+// =============
+
+// function convertFile (content, callback) {
+//     setTimeout(function () {
+//         callback(null, `Конвертований вміст: ${content.toUpperCase()}`)
+//     }, 1000)
+// }
+
+// function saveFile (convertedContent, callback) {
+//     setTimeout(function () {
+//         callback()
+//     }, 1500)
+// }
+
+// function sendFileToClient (callback) {
+//     setTimeout(function () {
+//         callback()
+//     }, 500)
+// }
+
+// =========================
+
+// const loadFile = (filename) => new Promise((resolve) => {
+//     console.log(`Завантаження файлу ${filename}....`);
+//     setTimeout(() => resolve(`Вміст файлу ${filename}`), 2000)
+// })
+
+// const result = loadFile("image.png")
+
+// console.log(result);
+
+// setTimeout(() => console.log(result), 3000)
+
+// ==========
+
+// const loadFile = (filename) => new Promise((resolve, reject) => {
+//     console.log(`Завантаження файлу ${filename}....`);
+//     setTimeout(() => resolve(`Вміст файлу ${filename}`), 2000)
+// })
+
+// loadFile("image.png").then((data) => {
+//     return data.toUpperCase();
+// }).then((data) => {
+//     console.log(data)
+// }).catch((error) => {
+//     console.log("Error", error)
+// }).finally(() => {
+//     console.log("End")
+// })
+
+// ===========
+
+// function loadFile(filename) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Вміст файлу ${filename}`);
+//         }, 2000);
+//     });
+// };
+
+// function convertFile(content) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Конвертований вміст: ${content.toUpperCase()}`);
+//         }, 1000);
+//     });
+// };
+
+// function saveFile(convertedFile) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 1500);
+//     });
+// };
+
+// function sendFileToClient() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 500);
+//     });
+// };
+
+// loadFile("example.txt")
+//     .then((content) => {
+//         console.log("Файл завантажено успішно!");
+//         console.log("Вміст файлу:", content);
+//         return convertFile(content);
+//     })
+//     .then((convertedFile) => {
+//         console.log("Файл успішно сконвертовано");
+//         console.log("Конвертований вміст:", convertedFile);
+//         return saveFile(convertedFile);
+//     })
+//     .then(() => {
+//         console.log("Файл успішно збережено");
+//         return sendFileToClient();
+//     })
+//     .catch((error) => {
+//         console.error("Сталась помилка:", error)
+//     })
+//     .finally(() => {
+//         console.log("Файл успішно відправлено клієнту");
+//     })
+
+// ==========
+
+// function loadFile(filename) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Вміст файлу ${filename}`);
+//         }, 2000);
+//     });
+// };
+
+// function convertFile(content) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Конвертований вміст: ${content.toUpperCase()}`);
+//         }, 1000);
+//     });
+// };
+
+// function saveFile(convertedFile) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 1500);
+//     });
+// };
+
+// function sendFileToClient() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 500);
+//     });
+// };
+
+// function getInfoFromFile(file) {
+//     console.log(file);
+//     return Promise.resolve(file);
+// }
+
+// loadFile("example.txt")
+//     .then((content) => {
+//         console.log("Файл завантажено успішно!");
+//         console.log("Вміст файлу:", content);
+//         return convertFile(content);
+//     })
+//     .then((data) => {
+//         return getInfoFromFile(data)
+//     })
+//     .then((convertedFile) => {
+//         console.log("Файл успішно сконвертовано");
+//         console.log("Конвертований вміст:", convertedFile);
+//         return saveFile(convertedFile);
+//     })
+//     .then(() => {
+//         console.log("Файл успішно збережено");
+//         return sendFileToClient();
+//     })
+//     .catch((error) => {
+//         console.error("Сталась помилка:", error)
+//     })
+//     .finally(() => {
+//         console.log("Файл успішно відправлено клієнту");
+//     })
+
+// ==========
+
+// function loadFile(filename) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Вміст файлу ${filename}`);
+//         }, 2000);
+//     });
+// };
+
+// function convertFile(content) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(`Конвертований вміст: ${content.toUpperCase()}`);
+//         }, 1000);
+//     });
+// };
+
+// function saveFile(convertedFile) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 1500);
+//     });
+// };
+
+// function sendFileToClient() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve();
+//         }, 500);
+//     });
+// };
+
+// function getInfoFromFile(file) {
+//     console.log(file);
+//     return Promise.resolve(file);
+// }
+
+// Promise.all([
+//     loadFile("example.txt"),
+//     getInfoFromFile("example.txt"),
+//     saveFile(),
+//     sendFileToClient(), 
+//     convertFile("file")
+// ]).then((data) => {
+//     console.log(data)
+// })
+
+// ================
+
